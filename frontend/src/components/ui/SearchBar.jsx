@@ -40,7 +40,7 @@ const SearchBar = ({ searchBarIsActive, setSearchBarIsActive, }) => {
       </i>
 
       
-        <input className={`absolute transition1 ${searchBarIsActive? 'w-[170px]' : 'w-0 opacity-0 pointer-events-none'} right-[20px] top-1/2 transform -translate-y-1/2 grayBorder focus:border-[#ffffff] outline-none
+        <input className={`absolute transition1 ${searchBarIsActive? 'w-[170px]' : 'w-0 opacity-0 pointer-events-none'} right-[28px] top-1/2 transform -translate-y-1/2 grayBorder focus:border-[#ffffff] outline-none
                           px-[10px] py-[5px] roundCorner bg-[#fff1d2]`}
           type="text"
           onFocus={handleInputFocus}

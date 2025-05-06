@@ -41,7 +41,7 @@ const CartItemCard = ({cartItem, user, setRefresh}) => {
               Quantity: {cartItem.quantity}
             </p>{" "}
             {/* Quantity */}
-            <div className="flex gap-[10px] text-[20px]">
+            <div className="flex gap-[10px] text-[20px] max-sm:text-[22px] z-50">
               <i className="fa-solid fa-square-minus hover:text-[#e0bf7f] cursor-pointer"
                  onClick={() => updateQuantity('decrease', user, cartItem, setRefresh)}>
               </i>

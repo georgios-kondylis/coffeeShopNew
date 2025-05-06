@@ -29,7 +29,7 @@ const SignUp = ({ setSignUpPageActive, setLogInPageActive }) => {
     const dataToSend = new FormData();
     dataToSend.append('firstName', formData.firstName);
     dataToSend.append('lastName', formData.lastName);
-    dataToSend.append('email', formData.email);
+    dataToSend.append('email', formData.email.toLowerCase().trim());
     dataToSend.append('password', formData.password);
     if (imageFile) dataToSend.append('image', imageFile); // 👈 this must match multer's `.single("image")`
 

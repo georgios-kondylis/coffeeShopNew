@@ -31,7 +31,8 @@ h1 {@apply bg-transparent tracking-[1px]}
 .roundCorner {@apply rounded-[7px]}
 .txtSH { text-shadow: 0 0 20px black;}
 
-.iNav, .navLink { @apply text-[#ffffff] hover:text-[#F5E6A0] cursor-pointer hover:scale-[1.1] hover:translate-y-[-1px] transition1 } 
+.navLink { @apply text-[#ffffff] hover:text-[#F5E6A0] cursor-pointer hover:scale-[1.1] hover:translate-y-[-1px] transition1 } 
+.iNav { @apply text-[#ffffff] max-md:text-[20px] hover:text-[#F5E6A0] cursor-pointer hover:scale-[1.1] hover:translate-y-[-1px] transition1 } 
 .hamburger:hover .hamburger_bar {@apply bg-[#F5E6A0]}
 .hamburger_bar {@apply w-full h-[2px] bg-white rounded}
 

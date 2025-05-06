@@ -8,10 +8,13 @@ const Footer = () => {
       <div className="relative z-10 flex flex-col items-center py-10 px-4 text-center space-y-4 w-full max-w-[500px]">
         <img className="w-[200px]" src="logo2.png" alt="Brew Haven Logo" />
 
-        <p className="flex items-center gap-2">
-          <i className="fas fa-map-marker-alt text-[#e0bf7f]" />
-          Restaurang Gatan, Delicious City, Stockholm 18336, SW
-        </p>
+        <div className='flex items-start gap-2 max-sm:gap-0'>
+          <i className="fas fa-map-marker-alt text-[#e0bf7f] mt-[2px]" />
+          <p className="flex items-start">
+            Restaurang Gatan, Delicious City, Stockholm 18336, SW
+          </p>
+        </div>
+       
 
         <a href="mailto:georgios.p.kondylis@gmail.com" className="flex items-center gap-2 hover:text-[#e0bf7f] quicksand">
           <i className="fas fa-envelope text-[#e0bf7f]" />
@@ -43,7 +46,7 @@ const Footer = () => {
             placeholder="Enter your email"
             className="flex-1 bg-transparent text-white placeholder-gray-400 px-2 py-3 focus:outline-none"
           />
-          <button className="bg-[#e0bf7f] text-black font-semibold px-6 hover:bg-[#f6e0b6] transition-all" >
+          <button className="bg-[#e0bf7f] text-black font-semibold max-sm:px-[3px] max-sm:text-[13px] px-6 hover:bg-[#f6e0b6] transition-all" >
             Subscribe
           </button>
         </form>

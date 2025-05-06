@@ -28,7 +28,7 @@ const LogIn = ({ setLogInPageActive, setSignUpPageActive, setRefresh }) => {
     }
   
     const payload = {
-      email: formData.email,
+      email: formData.email.toLowerCase().trim(),
       password: formData.password
     };
   
