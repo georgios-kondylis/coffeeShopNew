@@ -24,7 +24,7 @@ const SignUp = ({ setSignUpPageActive, setLogInPageActive }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const backEndUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const backEndUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
     const dataToSend = new FormData();
     dataToSend.append('firstName', formData.firstName);
@@ -60,7 +60,7 @@ const SignUp = ({ setSignUpPageActive, setLogInPageActive }) => {
 
         <button className="absolute top-3 right-4 text-[20px] text-[#f3cdac] hover:text-white transition-all"
           onClick={() => setSignUpPageActive(false)} >
-          <i className="fa-solid fa-xmark"></i>
+          <i className="hover:text-[#f3cdac] fa-solid fa-xmark"></i>
         </button>
 
         <h2 className="text-[22px] font-semibold mb-4 text-center text-[#f3cdac]">Create an Account</h2>
@@ -74,7 +74,7 @@ const SignUp = ({ setSignUpPageActive, setLogInPageActive }) => {
             name="image"
             accept="image/*"
             onChange={handleImageChange}
-            className="grayBorder file:bg-[#f3cdac] file:text-black file:font-medium file:px-3 file:py-1 file:rounded file:border-none text-[14px] bg-transparent rounded-[4px] px-[10px] py-[5px] cursor-pointer"
+            className="grayBorder file:bg-[#f3cdac] file:cursor-pointer file:text-black file:font-medium file:px-3 file:py-1 file:rounded file:border-none text-[14px] bg-transparent rounded-[4px] px-[10px] py-[5px] cursor-pointer"
           />
 
           <div className="flex gap-2">

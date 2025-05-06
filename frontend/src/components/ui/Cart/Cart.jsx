@@ -27,7 +27,7 @@ const Cart = ({ cartIsActive, setCartIsActive }) => {
     };
 
     fetchCartItems();
-  }, [refresh]);
+  }, [user, refresh]);
 
   const handlePlaceOrder = async () => {
   if (!user || !user.email) return alert("You need to be logged in to place an order.");

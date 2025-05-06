@@ -26,7 +26,7 @@ const ReviewsMobile = () => {
   }, [isInView]);
 
   const handleSubmitReview = async () => {
-    const backEndUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const backEndUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
     const formData = new FormData();
     formData.append('stars', stars);
@@ -65,7 +65,6 @@ const ReviewsMobile = () => {
       }
     };
     fetchReviews();
-    setRefresh(prev => !prev)
   }, [refresh]);
 
   return (

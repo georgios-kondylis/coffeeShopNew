@@ -32,7 +32,7 @@ const AddReview = ({
 
         {/* Profile */}
         <div className="flex gap-4 items-center mb-4">
-          <img src={user.image} alt={user.name} className="w-[80px] h-[80px] rounded-full object-cover" />
+          <img src={user.image? user.image : 'https://res.cloudinary.com/dw6j3b516/image/upload/v1746401635/Screenshot_2025-05-05_at_01.32.34-removebg-preview_xnlmgl.png'} alt={user.name} className="w-[80px] h-[80px] rounded-full object-cover" />
           <div>
             <h3 className="textDark font-semibold text-lg">{user.firstName} {user.lastName}</h3>
             <div className="flex gap-1">

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const DeleteAccount = ({ user, setDeleteAccountActive, setRefresh }) => {
 
   const handleDelete = async () => {
-    const backEndUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const backEndUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
     try {
       const response = await fetch(`${backEndUrl}/api/users/${user._id}`, {

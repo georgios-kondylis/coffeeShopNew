@@ -57,6 +57,7 @@ h1 {@apply bg-transparent tracking-[1px]}
 
 
 .accountOptions { @apply px-[15px] py-[7px] hover:bg-[#2a2a2a] transition1 cursor-pointer text-nowrap;}
+.accountOptionsProfile { @apply px-[15px] py-[7px] text-nowrap;}
 
 .logIn_signUp_inputs { @apply bgDark grayBorder px-[15px] py-[7px] rounded-[4px] text-[14px] placeholder:text-[#999] focus:outline-none focus:ring-2 focus:ring-[#f3cdac];}
 .logIn_signUp_SUBMIT { @apply bg-[#f3cdac] text-black font-semibold py-2 rounded hover:scale-[1.01] transition1;}

@@ -12,7 +12,7 @@ const ReviewCard = ({ review }) => {
   const hasExperienceImage = review.experienceImage && imageLoaded; // IMPORTAND
 
   const handleDeleteReview = async () => {
-    const backEndUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const backEndUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
     try {
       // Make DELETE request to backend to delete the review
       const res = await fetch(`${backEndUrl}/api/reviews/delete-review/${review._id}`, {

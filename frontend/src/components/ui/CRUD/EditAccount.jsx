@@ -9,7 +9,7 @@ const EditAccount = ({ user, setEditAccountActive, setRefresh }) => {
   const [message, setMessage] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-  const [preview, setPreview] = useState(user.image || null); 
+  const [preview, setPreview] = useState(user.image || 'https://res.cloudinary.com/dw6j3b516/image/upload/v1746401635/Screenshot_2025-05-05_at_01.32.34-removebg-preview_xnlmgl.png'); 
   const [imageFile, setImageFile] = useState(null);
 
   const [formData, setFormData] = useState({

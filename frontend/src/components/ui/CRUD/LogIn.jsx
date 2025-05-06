@@ -32,7 +32,7 @@ const LogIn = ({ setLogInPageActive, setSignUpPageActive, setRefresh }) => {
       password: formData.password
     };
   
-    const backEndUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const backEndUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
   
     try {
       const response = await fetch(`${backEndUrl}/api/users/login`, {
