@@ -1,0 +1,119 @@
+const createProducts = async () => {
+  try {
+   const products = [
+  {
+    title: 'Croissant',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672397/croissant-removebg-preview_xkkn7h.png',
+    price: 35,
+    description: 'A flaky croissant with a rich, smooth chocolate center. Golden, crisp, and irresistibly delicious.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Mudcake',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672398/mudcake-removebg-preview_cjpngu.png',
+    price: 45,
+    description: 'A rich and moist chocolate cake with a dense texture, perfect for a chocolate lover’s indulgence.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Cinnamon Bun',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672398/kanelBulle-removebg-preview_yt3o4w.png',
+    price: 30,
+    description: 'A classic Swedish pastry with cinnamon filling and a soft, fluffy dough.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Chocolate Ball',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672397/chokladboll-removebg-preview_suq0ha.png',
+    price: 25,
+    description: 'A no-bake treat made from oats, cocoa, sugar, and butter, rolled in coconut flakes.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Kanelknutar',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672398/kanelKnut-removebg-preview_ixgtmk.png',
+    price: 28,
+    description: 'Swedish cinnamon knots, smaller than the cinnamon bun but packed with cinnamon goodness.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Brownie',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672397/brownie-removebg-preview_sma31c.png',
+    price: 32,
+    description: 'A decadent, fudgy chocolate brownie often served warm.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Lemon Cake',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672397/lemonCake-removebg-preview_fpsu3y.png',
+    price: 38,
+    description: 'A zesty, moist cake with a fresh lemon flavor, often topped with lemon icing.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Gluten-Free Carrot Cake',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672398/carrotCake-removebg-preview_k4gixl.png',
+    price: 40,
+    description: 'A gluten-free version of the classic carrot cake, still full of flavor with a rich texture.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Bougatsa',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672397/bougatsa-removebg-preview_ykqo15.png',
+    price: 42,
+    description: 'A delicious Greek pastry with layers of flaky filo dough filled with creamy custard, topped with powdered sugar.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Baklava',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672398/baklava-removebg-preview_dukviu.png',
+    price: 45,
+    description: 'A rich, sweet dessert made of layers of filo pastry filled with chopped nuts and sweetened with honey.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Galaktoboureko',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672397/galaktoboureko-removebg-preview_nii4gq.png',
+    price: 45,
+    description: 'A Greek dessert with creamy custard between layers of filo, soaked in a lemony syrup.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  },
+  {
+    title: 'Kataifi',
+    image: 'https://res.cloudinary.com/dw6j3b516/image/upload/v1745672398/kantaifi-removebg-preview_ody2oa.png',
+    price: 45,
+    description: 'A dessert made with shredded filo dough wrapped around a nut filling and sweetened with syrup.',
+    isVegan: false,
+    category: 'pastry',
+    available: true
+  }
+];    
+    const createdNew = await Product.insertMany(products);
+    console.log('✅ Products created:', createdNew.length);
+  } catch (error) {
+    console.error('❌ Error creating products:', error.message);
+  }
+};
+//  createProducts()

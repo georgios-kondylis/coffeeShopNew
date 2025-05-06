@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html { scroll-behavior: smooth;}
+.mt50 {@apply mt-[50px]}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #f8f4f0;
+  font-family: 'DM Serif Display', serif;
+}
+.W_LIMIT { @apply max-w-[1450px] }
+.mainPX { @apply px-[30px]}
+.mobPX { @apply px-[20px] }
+.transition1 { @apply transition-all ease-in-out duration-300 }
+.TR {@apply bg-transparent}
+.headerSplit {@apply text-[35px] mx-auto mb-[50px] mt-[80px]}
+.aboutSectionContainer {@apply flex flex-col bgDark W_LIMIT}
+
+
+p, input, textarea {font-family: 'Quicksand', sans-serif;}
+.quicksand {font-family: 'Quicksand', sans-serif;}
+
+span {font-family: 'Quicksand', sans-serif; font-weight: 600; letter-spacing: 1px; color: #e0bf7f;}
+header {@apply bg-transparent}
+h1, p, header {@apply bg-transparent}
+h1 {@apply bg-transparent tracking-[1px]}
+
+.roundCorner {@apply rounded-[7px]}
+.txtSH { text-shadow: 0 0 20px black;}
+
+.iNav, .navLink { @apply text-[#ffffff] hover:text-[#F5E6A0] cursor-pointer hover:scale-[1.1] hover:translate-y-[-1px] transition1 } 
+.hamburger:hover .hamburger_bar {@apply bg-[#F5E6A0]}
+.hamburger_bar {@apply w-full h-[2px] bg-white rounded}
+
+.mobGroupLink { @apply relative flex items-center gap-[15px] cursor-pointer w-full py-[7px] }
+.mobNavLink { @apply  text-[#ffffff] group-hover:text-[#3D3D3D] cursor-pointer }
+
+.bgDark {@apply bg-[#161616]}
+.bgBrightMain     {@apply bg-[#f6e0b6]}   /* Soft beige */
+.bgBrightAccent   {@apply bg-[#ffffff]}   /* Clean card bg */
+.bgCream { @apply bg-[#f3cdac]; /* Creamy beige */}
+.bgRed { @apply bg-[#df5050]; /* Creamy beige */}
+
+.grayBorder { @apply border border-[#3e3e3e] ;}
+
+.textDark { @apply text-[#3D3D3D]; }
+.textCream { @apply text-[#e0bf7f]; }
+.textCreamLight { @apply text-[#f3cdac]; }
+.textForest { @apply text-[#277c78]; }
+.textCoffee { @apply text-[#6F4F37]; }
+.subText { @apply text-sm text-gray-400}
+.textRed { @apply text-[#df5050]; }
+
+
+
+.accountOptions { @apply px-[15px] py-[7px] hover:bg-[#2a2a2a] transition1 cursor-pointer text-nowrap;}
+
+.logIn_signUp_inputs { @apply bgDark grayBorder px-[15px] py-[7px] rounded-[4px] text-[14px] placeholder:text-[#999] focus:outline-none focus:ring-2 focus:ring-[#f3cdac];}
+.logIn_signUp_SUBMIT { @apply bg-[#f3cdac] text-black font-semibold py-2 rounded hover:scale-[1.01] transition1;}
+
+.BTN_STYLES {@apply w-fit py-[7px] px-[15px] mt-[25px] bgCream hover:bg-[#f6e0b6] text-[#2A2A2A] font-[900] roundCorner transition1}
+.BTN_STYLES_REVIEW {@apply py-[7px] px-[15px] bgCream hover:bg-[#f6e0b6] text-[#2A2A2A] font-[900] roundCorner transition1}
+
+.BTN_STYLES_PAINATION {@apply w-fit py-[7px] px-[15px] bgCream hover:bg-[#f6e0b6] text-[#2A2A2A] font-[900] roundCorner transition1 cursor-pointer}
