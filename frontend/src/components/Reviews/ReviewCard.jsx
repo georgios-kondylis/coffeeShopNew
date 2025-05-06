@@ -47,11 +47,11 @@ const ReviewCard = ({ review }) => {
           </div>
 
           {/* Name and Stars */}
-          <div className='absolute left-[90px] top-[8px]'>
-            <h3 className="font-semibold textDark text-[20px] max-sm:text-[16px]">{review.userId.firstName} {review.userId.lastName}</h3>
+          <div className='absolute left-[90px] max-sm:left-[80px] top-[8px]'>
+            <h3 className="font-semibold textDark text-[20px] max-sm:text-[14px]">{review.userId.firstName} {review.userId.lastName}</h3>
             <p className="flex gap-[2px]">
               {Array(review.rating).fill().map((_, i) => (
-                <img key={i} className='w-[20px] max-sm:w-[16px]' src="/icons/star.png" alt="" />
+                <img key={i} className='w-[20px] max-sm:w-[12px]' src="/icons/star.png" alt="" />
               ))}
             </p>
           </div>
