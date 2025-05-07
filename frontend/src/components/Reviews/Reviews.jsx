@@ -113,16 +113,14 @@ const Reviews = () => {
       </div>
 
       <div className="flex justify-center items-center gap-[20px] mt-4">
-        <button
-          onClick={handlePrev}
+        <button onClick={handlePrev}
           disabled={currentPage === 1}
           className="BTN_STYLES_PAINATION disabled:opacity-50"
         >
           Previous
         </button>
         <span className="text-lg">{currentPage} / {totalPages}</span>
-        <button
-          onClick={handleNext}
+        <button onClick={handleNext}
           disabled={currentPage === totalPages}
           className="BTN_STYLES_PAINATION disabled:opacity-50"
         >

@@ -105,7 +105,7 @@ const ReviewsMobile = () => {
             transition={{ duration: 0.6 }}
             className="absolute w-full bottom-0 left-0 flex justify-center"
           >
-            <img src="/icons/swipe.gif" alt="swipe gesture" className="w-[150px]" />
+            <img src="/icons/swipe.gif" alt="swipe gesture" className="w-[150px] pointer-events-none" />
           </motion.div>
         )}
       </AnimatePresence>
