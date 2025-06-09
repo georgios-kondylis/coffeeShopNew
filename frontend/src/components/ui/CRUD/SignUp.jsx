@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 const SignUp = ({ setSignUpPageActive, setLogInPageActive }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -24,6 +26,7 @@ const SignUp = ({ setSignUpPageActive, setLogInPageActive }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // start loading
     const backEndUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
     const dataToSend = new FormData();
@@ -51,6 +54,8 @@ const SignUp = ({ setSignUpPageActive, setLogInPageActive }) => {
     } catch (error) {
       console.error('Signup error:', error.message);
       alert(error.message);
+    } finally {
+    setLoading(false); // stop loading
     }
   };
 
@@ -119,9 +124,18 @@ const SignUp = ({ setSignUpPageActive, setLogInPageActive }) => {
             ></i>
           </div>
 
-          <button type="submit" className="logIn_signUp_SUBMIT" >
-            Sign Up
+          <button type="submit" disabled={loading}
+            className="logIn_signUp_SUBMIT flex items-center justify-center gap-2"
+          >
+            {loading ? (
+              <>
+                <i className="fas fa-spinner fa-spin text-black"></i> Signing up...
+              </>
+            ) : (
+              "Sign Up"
+            )}
           </button>
+
         </form>
 
         <p className="text-xs text-center mt-4 text-[#ccc]">

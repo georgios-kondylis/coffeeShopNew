@@ -4,6 +4,7 @@ import ReviewCard from './ReviewCard';
 import AddReview from './AddReview';
 import { backendUrl } from '../../utils';
 import { ProductsContext } from '../../App';
+import SkeletonCard from '../ui/CRUD/SkeletonCard';
 
 const ReviewsMobile = () => {
   const [realReviews, setRealReviews] = useState([]);
@@ -11,6 +12,8 @@ const ReviewsMobile = () => {
   const [stars, setStars] = useState(5);
   const [text, setText] = useState('');
   const [experienceImage, setExperienceImage] = useState(null);
+  const [loading, setLoading] = useState(true); // 👈 Skeleton loading state
+
   const { user, setLogInPageActive, refresh, setRefresh } = useContext(ProductsContext);
 
   const ref = useRef(null);
@@ -56,12 +59,15 @@ const ReviewsMobile = () => {
 
   useEffect(() => {
     const fetchReviews = async () => {
+      setLoading(true); // 👈 Start loading
       try {
         const res = await fetch(`${backendUrl}/api/reviews`);
         const data = await res.json();
         setRealReviews(data);
       } catch (error) {
         console.error('Error fetching reviews:', error);
+      } finally {
+        setLoading(false); // 👈 Done loading
       }
     };
     fetchReviews();
@@ -89,11 +95,16 @@ const ReviewsMobile = () => {
         viewport={{ once: true, amount: 0.2 }}
         className="flex w-full p-[20px] gap-[15px] roundCorner overflow-x-scroll snap-x snap-mandatory scroll-smooth"
       >
-        {realReviews.map((review, i) => (
+       {loading
+        ? Array.from({ length: 3 }).map((_, i) => (
           <div key={i} className="w-[95%] snap-center shrink-0">
-            <ReviewCard review={review} />
-          </div>
-        ))}
+            <SkeletonCard key={i} />
+          </div> ))
+        : realReviews.map((review, i) => (
+            <div key={i} className="w-[95%] snap-center shrink-0">
+              <ReviewCard review={review} />
+            </div>
+          ))}
       </motion.div>
 
       <AnimatePresence>

@@ -2,10 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReviewCard from './ReviewCard';
 import { backendUrl } from '../../utils';
-import { reviews } from '../../utils';
 import AddReview from './AddReview';
 import { ProductsContext } from '../../App';
-import { fadeUp } from '../../utils'; // 👈 import motion variant
+import { fadeUp } from '../../utils';
+import SkeletonCard from '../ui/CRUD/SkeletonCard';
 
 const Reviews = () => {
   const [realReviews, setRealReviews] = useState([]);
@@ -13,6 +13,8 @@ const Reviews = () => {
   const [stars, setStars] = useState(5);
   const [text, setText] = useState('');
   const [experienceImage, setExperienceImage] = useState(null);
+  const [loading, setLoading] = useState(true); // 👈 Skeleton loading state
+
   const { user, setLogInPageActive, refresh, setRefresh } = useContext(ProductsContext);
 
   const handleSubmitReview = async () => {
@@ -33,7 +35,6 @@ const Reviews = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Something went wrong');
 
-      console.log('Review submitted:', data);
       setRealReviews((prev) => [data.review, ...prev]);
       setAddReviewOpen(false);
       setText('');
@@ -47,12 +48,15 @@ const Reviews = () => {
 
   useEffect(() => {
     const fetchReviews = async () => {
+      setLoading(true); // 👈 Start loading
       try {
         const res = await fetch(`${backendUrl}/api/reviews`);
         const data = await res.json();
         setRealReviews(data);
       } catch (error) {
         console.error('Error fetching reviews:', error);
+      } finally {
+        setLoading(false); // 👈 Done loading
       }
     };
 
@@ -78,8 +82,7 @@ const Reviews = () => {
   };
 
   return (
-    <motion.section
-      className="w-full W_LIMIT flex flex-col mt-[30px]"
+    <motion.section className="w-full W_LIMIT flex flex-col mt-[30px]"
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
@@ -89,44 +92,52 @@ const Reviews = () => {
 
       <div className="w-full flex justify-end">
         <button className="BTN_STYLES_REVIEW mb-[30px]"
-          onClick={user ? () => setAddReviewOpen(true) : () => setLogInPageActive(true)} >
+          onClick={user ? () => setAddReviewOpen(true) : () => setLogInPageActive(true)}
+        >
           {!user ? 'Log In To add a review' : 'Add a review'}
         </button>
       </div>
 
       <div className="relative h-[450px]">
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            key={currentPage}
-            custom={direction}
-            initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="absolute top-0 left-0 w-full grid gap-[20px] sm:grid-cols-2"
-          >
-            {currentReviews.map((review, i) => (
-              <ReviewCard key={i} review={review} />
+        {loading ? (
+          <div className="grid gap-[20px] sm:grid-cols-2">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <SkeletonCard key={i} />
             ))}
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ) : (
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              key={currentPage}
+              custom={direction}
+              initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="absolute top-0 left-0 w-full grid gap-[20px] sm:grid-cols-2"
+            >
+              {currentReviews.map((review, i) => (
+                <ReviewCard key={i} review={review} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        )}
       </div>
 
-      <div className="flex justify-center items-center gap-[20px] mt-4">
-        <button onClick={handlePrev}
-          disabled={currentPage === 1}
-          className="BTN_STYLES_PAINATION disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <span className="text-lg">{currentPage} / {totalPages}</span>
-        <button onClick={handleNext}
-          disabled={currentPage === totalPages}
-          className="BTN_STYLES_PAINATION disabled:opacity-50"
-        >
-          Next
-        </button>
-      </div>
+      {!loading && (
+        <div className="flex justify-center items-center gap-[20px] mt-4">
+          <button onClick={handlePrev} disabled={currentPage === 1}
+            className="BTN_STYLES_PAINATION disabled:opacity-50"
+          >
+            Previous
+          </button>
+          <span className="text-lg">{currentPage} / {totalPages}</span>
+          <button onClick={handleNext} disabled={currentPage === totalPages}
+            className="BTN_STYLES_PAINATION disabled:opacity-50">
+            Next
+          </button>
+        </div>
+      )}
 
       {addReviewOpen && (
         <AddReview

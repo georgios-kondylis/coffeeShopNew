@@ -111,10 +111,8 @@ const LogIn = ({ setLogInPageActive, setSignUpPageActive, setRefresh }) => {
             ></i>
           </div>
 
-          <button
-            type="submit"
+          <button type="submit" disabled={loading}
             className="logIn_signUp_SUBMIT flex items-center justify-center gap-2"
-            disabled={loading}
           >
             {loading ? (
               <>
